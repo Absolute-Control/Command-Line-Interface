@@ -18,4 +18,8 @@ jobs:
       with:
         python-version: '3.9'
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --target RUN --tag absolute-control-cli:$(date +%s)
+      run: docker build . --file Dockerfile --target RUN --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$GITHUB_SHA
+    - name: Login to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
+    - name: Publish Docker Image
+      run: docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:$GITHUB_SHA
