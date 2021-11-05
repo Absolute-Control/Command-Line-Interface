@@ -17,6 +17,11 @@ docker build -t cli --target RUN .
 docker run cli
 ```
 
+You may also use the docker image on Dockerhub.
+`royaldog/absolute-control-cli:latest`
+
+Docker images are also tagged using the github commit sha.
+
 ## Testing
 To test the library, you can use the `run_tests.py` script. It is highly recommended to use the docker image. These tests could shut down your system or cause harm to your system.
 
