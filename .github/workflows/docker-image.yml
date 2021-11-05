@@ -17,4 +17,4 @@ jobs:
       with:
         python-version: '3.9'
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag absolute-control-cli:$(date +%s)
+      run: docker build . --tag absolute-control-cli:$(date +%s)
