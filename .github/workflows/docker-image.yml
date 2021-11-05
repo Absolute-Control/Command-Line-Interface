@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/python@v2
+    - uses: actions/setup-python@v2
       with:
         python-version: '3.9'
     - name: Build the Docker image
